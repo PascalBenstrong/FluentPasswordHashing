@@ -2,7 +2,6 @@ using FluentAssertions;
 using Xunit;
 using System.Threading.Tasks;
 using FluentPasswordHashing;
-using FluentHashing = FluentPasswordHashing.FluentPasswordHashing;
 
 namespace UnitTest.FluentPasswordHashing
 {
