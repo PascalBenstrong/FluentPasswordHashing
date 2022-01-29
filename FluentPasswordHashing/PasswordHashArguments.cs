@@ -1,6 +1,6 @@
 ﻿namespace FluentPasswordHashing
 {
-    internal class PasswordHashArguments
+    internal record PasswordHashArguments
     {
         /// <summary>
         /// Argon2 hash algorithm to use

@@ -38,11 +38,10 @@
         internal static async ValueTask<PasswordHashArguments> GenerateArgumentsWithHash(PasswordHashArguments arguments, char[] password, int saltLength = 16)
         {
             var salt = arguments.Salt ?? CreateSalt(saltLength);
-            var hash = await HashPassword(password,arguments).ConfigureAwait(false);
+            arguments = arguments with { Salt = salt };
+            var hash = await HashPassword(password, arguments).ConfigureAwait(false);
 
-            arguments.Salt = salt;
-            arguments.Hash = hash;
-            return arguments;
+            return arguments with { Hash = hash };
         }
 
         internal static ValueTask<PasswordHashArguments> GenerateArgumentsWithHash(PasswordHashArguments arguments, string password, int saltLength = 16)
