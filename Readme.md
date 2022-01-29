@@ -42,4 +42,4 @@ var isMatch = await generator.VerifyPassword(hash, password);
 
 ### License
 
-[MIT LICENSE](https://github.com/PascalBenstrong/FluentPasswordHashing/blob/master/LICENSE)
+[MIT LICENSE](https://github.com/PascalBenstrong/FluentPasswordHashing/blob/main/LICENSE)
