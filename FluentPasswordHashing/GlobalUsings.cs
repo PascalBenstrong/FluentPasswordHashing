@@ -6,4 +6,4 @@ global using System.Threading.Tasks;
 global using System.Runtime.Serialization;
 global using System.Security.Cryptography;
 global using Konscious.Security.Cryptography;
-global using FluentPasswordHashing.Generated;
+global using FluentPasswordHashing.Extensions;

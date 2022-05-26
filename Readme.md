@@ -23,7 +23,7 @@ var generator = FluentHashing.Create()
 var password = "password";
 
 // example hash for password
-// $argon2id$m=16,t=4,p=1$aM8qmYw1xfzvHEYTIg0w1g==$5Hg1fRhHv1uOnOMusawtqg==
+// $argon2id$m=16,t=4,p=1$aM8qmYw1xfzvHEYTIg0w1g==$mQqnrY9rQyMC7SJq039z/A==
 var hash = await generator.Generate(password);
 
 ```

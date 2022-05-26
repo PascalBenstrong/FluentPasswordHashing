@@ -49,9 +49,13 @@
 
         public override string ToString()
         {
-            var hash = $"${HashAlgorithm.GetString()}$m={MemorySize},t={Iterations},p={DegreeOfParallelism}";
-            hash += $"${Utils.Base64(Salt)}${Utils.Base64(Hash)}";
-            return hash;
+            StringBuilder sb = new();
+            sb.Append("$").Append(HashAlgorithm.AsString()).Append("$m=").Append(MemorySize);
+            sb.Append(",t=").Append(Iterations).Append(",p=").Append(DegreeOfParallelism);
+            sb.Append("$").Append(Utils.Base64(Salt)).Append("$").Append(Utils.Base64(Hash));
+            //var hash = $"${HashAlgorithm.AsString()}$m={MemorySize},t={Iterations},p={DegreeOfParallelism}";
+            //hash += $"${Utils.Base64(Salt)}${Utils.Base64(Hash)}";
+            return sb.ToString();
         }
 
         public static implicit operator string(PasswordHashArguments arguments)
@@ -74,7 +78,7 @@
             if (args.Length != 4)
                 throw new ArgumentException($"The hash is of invalid format, {nameof(hashString)}");
 
-            var algorithm = args[0].FromStringPasswordHashAlgorithm();
+            var algorithm = args[0].AsPasswordHashAlgorithm();
             var salt = Utils.Base64Decode(args[2]);
             var hash = Utils.Base64Decode(args[3]);
 
